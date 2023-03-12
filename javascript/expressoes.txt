@@ -1,0 +1,9 @@
+// 'Teste' && 'Teste 2' -> 'Teste 2'
+
+// 'Teste' && false -> false
+
+// 'Teste' || false -> 'Teste'
+
+// false || 'Teste' -> 'Teste'
+
+// false || 'Teste' || 'Teste 2' -> 'Teste'

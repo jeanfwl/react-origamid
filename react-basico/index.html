@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React</title>
+
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel">
+    const Button = () => {
+      return <button>Comprar</button>
+    }
+    const Titulo = () => {
+      const random = Math.random() * 2000;
+      return <h1>Título React {random.toFixed(2)}</h1>
+    }
+    const Produtos = () => {
+      function handleClick(event) {
+        console.log(event.target);
+      }
+
+      return (
+        <div>
+          <button onClick={handleClick}>Comprar Camisa</button>
+          <button onClick={handleClick}>Comprar Sapato</button>
+        </div>
+      )
+    }
+
+    const Compras = () => {
+      const [contador, setContador] = React.useState(0);
+
+      return (
+        <div>
+          <div>Total: {contador}</div>
+          <div>Preço: {contador * 250}</div>
+          <button onClick={() => setContador(contador + 1)}>Comprar mais</button>
+        </div>
+      )
+    }
+
+    function App() {
+      return (
+        <div>
+          Meu App
+          <Titulo />
+          <Produtos />
+          <Compras />
+        </div>
+      )
+    }
+
+    ReactDOM.render(<App />, document.getElementById('app'))
+  </script>
+</body>
+
+</html>
