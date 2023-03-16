@@ -1,23 +1,21 @@
-import React from 'react'
+import React from 'react';
+import Produto from './Produto';
+import Titulo from './Titulo';
 
 const Produtos = () => {
-    const produtos = [
-        { nome: 'Notebook', propriedades: ['16gb ram', '512gb'] },
-        { nome: 'Smartphone', propriedades: ['2gb ram', '128gb'] },
-    ];
+  const produtos = [
+    { nome: 'Notebook', propriedades: ['16gb ram', '512gb'] },
+    { nome: 'Smartphone', propriedades: ['2gb ram', '128gb'] },
+  ];
 
-    return (
-        <main>
-            {produtos.map(produto => (
-                <section key={produto.nome} style={{ border: '1px solid black', padding: '1rem', margin: '1rem 0'}}>
-                    <p>{produto.nome}</p>
-                    <ul>
-                        {produto.propriedades.map(propriedade => <li key={propriedade}>{propriedade}</li>)}
-                    </ul>
-                </section>
-            ))}
-        </main>
-    )
-}
+  return (
+    <section>
+      <Titulo texto="Produtos" />
+      {produtos.map((produto) => (
+        <Produto key={produto.nome} {...produto} />
+      ))}
+    </section>
+  );
+};
 
-export default Produtos
+export default Produtos;
