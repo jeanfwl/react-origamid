@@ -18,7 +18,21 @@ const Input = ({ id, ...props }) => {
   );
 };
 
+const Header = ({ logado, nome, direitos }) => {
+  console.log(direitos);
+  if (logado) {
+    return <header>Bem vindo {nome}!</header>
+  } else {
+    return <header>Login</header>
+  }
+};
+
 const App = () => {
+  const logado = true;
+  const nome = 'Jean';
+  const direitos = ['Usuário', 'Administrador'];
+
+
   return (
     <div>
       <Titulo texto="Exemplos" cor="gray" />
@@ -27,6 +41,7 @@ const App = () => {
       </Titulo>
       <br />
       <Input id="teste" name="teste" className="teste" />
+      <Header logado={logado} nome={nome} direitos={direitos} />
     </div>
   );
 };
