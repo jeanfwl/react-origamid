@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './reacthooks/App';
+import App from './reacthooks/exercicios/ex2';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
