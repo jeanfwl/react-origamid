@@ -10,32 +10,26 @@ import Produto from './Produto';
 
 const App = () => {
   const [produto, setProduto] = React.useState(null);
-  const [preferencia, setPreferencia] = React.useState(() => {
-    return localStorage.getItem('produto');
-  });
 
   React.useEffect(() => {
-    if (preferencia)
-      fetch(`https://ranekapi.origamid.dev/json/api/produto/${preferencia}`)
-        .then((r) => r.json())
-        .then((json) => setProduto(json));
-  }, [preferencia]);
+    if (produto) {
+      localStorage.setItem('produto', produto);
+    }
+  }, [produto]);
 
-  async function handleClick(event) {
-    const produto = event.target.innerText;
-    localStorage.setItem('produto', produto);
-    setPreferencia(produto);
+  React.useEffect(() => {
+    const produtoPref = localStorage.getItem('produto');
+    if (produtoPref) setProduto(produtoPref);
+  }, []);
 
-    const response = await fetch(
-      `https://ranekapi.origamid.dev/json/api/produto/${produto}`,
-    );
-    const json = await response.json();
-    setProduto(json);
+  function handleClick({ target }) {
+    const produtoPref = target.innerText;
+    setProduto(produtoPref);
   }
 
   return (
     <div>
-      <h2>Preferência: {preferencia}</h2>
+      <h2>Preferência: {produto}</h2>
       <button onClick={handleClick}>notebook</button>
       <button onClick={handleClick}>smartphone</button>
       <Produto produto={produto} />
