@@ -1,6 +1,6 @@
 import React from 'react';
-import Modal from './Modal';
-import ButtonModal from './ButtonModal';
+import Modal from './modal/Modal';
+import ButtonModal from './modal/ButtonModal';
 
 // Estados
 {
