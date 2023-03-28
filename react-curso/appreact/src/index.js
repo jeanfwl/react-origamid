@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './formulario/Input';
+import App from './formulario/form';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

@@ -1,4 +1,8 @@
 import React from 'react';
+import Checkbox from './Form/Checkbox';
+import Input from './Form/Input';
+import Radio from './Form/Radio';
+import Select from './Form/Select';
 
 // const App = () => {
 //   const [nome, setNome] = React.useState('');
@@ -167,37 +171,84 @@ import React from 'react';
 //   );
 // };
 
-const App = () => {
-  const [cores, setCores] = React.useState([]);
+// const App = () => {
+//   const [cores, setCores] = React.useState([]);
 
-  function handleChange({ target }) {
-    if (target.checked) {
-      setCores([...cores, target.value]);
-    } else {
-      setCores(cores.filter((cor) => cor !== target.value));
-    }
-  }
+//   function handleChange({ target }) {
+//     if (target.checked) {
+//       setCores([...cores, target.value]);
+//     } else {
+//       setCores(cores.filter((cor) => cor !== target.value));
+//     }
+//   }
+
+//   return (
+//     <form>
+//       <label>
+//         <input
+//           type="checkbox"
+//           value="azul"
+//           checked={cores.includes('azul')}
+//           onChange={handleChange}
+//         />
+//         Azul
+//       </label>
+//       <label>
+//         <input
+//           type="checkbox"
+//           value="vermelho"
+//           checked={cores.includes('vermelho')}
+//           onChange={handleChange}
+//         />
+//         Vermelho
+//       </label>
+//     </form>
+//   );
+// };
+
+const App = () => {
+  const [nome, setNome] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [produto, setProduto] = React.useState('');
+
+  const [cor, setCor] = React.useState('');
+  const [pelicula, setPelicula] = React.useState('');
+
+  const [termos, setTermos] = React.useState([]);
+  const [linguagens, setLinguagens] = React.useState([]);
 
   return (
     <form>
-      <label>
-        <input
-          type="checkbox"
-          value="azul"
-          checked={cores.includes('azul')}
-          onChange={handleChange}
-        />
-        Azul
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="vermelho"
-          checked={cores.includes('vermelho')}
-          onChange={handleChange}
-        />
-        Vermelho
-      </label>
+      <h3>Termos</h3>
+      <Checkbox
+        options={['Li e aceito os termos']}
+        value={termos}
+        setValue={setTermos}
+      />
+      <h3>Linguagens de Programação</h3>
+      <Checkbox
+        options={['Javascript', 'C#', 'Python']}
+        value={linguagens}
+        setValue={setLinguagens}
+      />
+      <h3>Cores</h3>
+      <Radio options={['Azul', 'Amarelo']} value={cor} setValue={setCor} />
+      <h3>Película</h3>
+      <Radio
+        options={['Escura', 'Violeta', 'Transparente']}
+        value={pelicula}
+        setValue={setPelicula}
+      />
+
+      <Select
+        options={['Tablet', 'Smartphone']}
+        value={produto}
+        setValue={setProduto}
+        emptyText="Selecione um produto"
+      />
+      <Input id="nome" label="Nome" value={nome} setValue={setNome} />
+      <Input id="email" label="Email" value={email} setValue={setEmail} />
+      <button>Enviar</button>
     </form>
   );
 };
