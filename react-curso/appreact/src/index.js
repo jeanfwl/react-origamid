@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './formulario/validation';
+import App from './formulario/desafio/solucao-professor/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
