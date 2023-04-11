@@ -1,0 +1,11 @@
+.titulo {
+  color: tomato;
+}
+
+.preco {
+  font-weight: bold;
+}
+
+.btnComprar {
+  background-color: azure;
+}

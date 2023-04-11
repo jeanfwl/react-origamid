@@ -1,0 +1,20 @@
+.titulo {
+  color: cor;
+  font-size: 2rem;
+}
+
+/* no local de composes use a vírgula .titulo, .preco {} */
+/* composes pega todos os estilos de .titulo e aplica nessa nova regra que se utiliza*/
+.preco {
+  composes: titulo;
+  font-weight: bold;
+}
+
+/* no local de variáveis utilize variáveis de CSS com o var() */
+@value cor: red;
+
+/* crie um css global utilizando o IMPORT puro para quando precisar de estilos globais */
+/* cria a classe global no css (não será possível acessar através do import deste modulo) */
+:global .container {
+  max-width: 1000px;
+}
