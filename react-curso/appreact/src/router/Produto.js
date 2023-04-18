@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  NavLink,
-  Route,
-  Routes,
-  useLocation,
-  useParams,
-} from 'react-router-dom';
-import ProdutoDescricao from './ProdutoDescricao';
-import ProdutoAvaliacao from './ProdutoAvaliacao';
-import ProdutoCustomizado from './ProdutoCustomizado';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 
 const Produto = () => {
   const params = useParams();
@@ -20,11 +11,7 @@ const Produto = () => {
         <NavLink to="avaliacao">Avaliação</NavLink>
         <NavLink to="customizado">Customizar</NavLink>
       </nav>
-      <Routes>
-        <Route path="/" element={<ProdutoDescricao />} />
-        <Route path="avaliacao" element={<ProdutoAvaliacao />} />
-        <Route path="customizado" element={<ProdutoCustomizado />} />
-      </Routes>
+      <Outlet />
     </div>
   );
 };
