@@ -1,16 +1,32 @@
 import React from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import {
+  NavLink,
+  Route,
+  Routes,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
+import ProdutoDescricao from './ProdutoDescricao';
+import ProdutoAvaliacao from './ProdutoAvaliacao';
+import ProdutoCustomizado from './ProdutoCustomizado';
 
 const Produto = () => {
-  //http://localhost:3000/produto/smartphone?q=azul&memoria=16
   const params = useParams();
-  const location = useLocation();
-
-  const searchParams = new URLSearchParams(location.search);
-  const memoria = searchParams.get('memoria');
-
-  console.log(memoria); // 16
-  return <h1>Produto: {params.id}</h1>;
+  return (
+    <div>
+      <h1>Produto: {params.id}</h1>
+      <nav>
+        <NavLink to="">Descrição</NavLink>
+        <NavLink to="avaliacao">Avaliação</NavLink>
+        <NavLink to="customizado">Customizar</NavLink>
+      </nav>
+      <Routes>
+        <Route path="/" element={<ProdutoDescricao />} />
+        <Route path="avaliacao" element={<ProdutoAvaliacao />} />
+        <Route path="customizado" element={<ProdutoCustomizado />} />
+      </Routes>
+    </div>
+  );
 };
 
 export default Produto;
