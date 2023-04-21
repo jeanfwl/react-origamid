@@ -31,15 +31,15 @@ const Produtos = () => {
   if (erro) return <p>{erro}</p>;
   if (produtos === null) return null;
   return (
-    <div className={`${styles.produtos} animeLeft`}>
+    <section className={`${styles.produtos} animeLeft`}>
       <Head title="Produtos" />
       {produtos.map(({ id, fotos, nome }) => (
-        <Link key={id} to={`produto/${id}`} className={styles.produto}>
+        <Link key={id} to={`produto/${id}`}>
           <img src={fotos[0].src} alt={fotos[0].titulo} />
-          <h3>{nome}</h3>
+          <h3 className={styles.titulo}>{nome}</h3>
         </Link>
       ))}
-    </div>
+    </section>
   );
 };
 

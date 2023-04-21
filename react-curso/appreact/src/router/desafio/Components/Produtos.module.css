@@ -4,8 +4,7 @@
   gap: 2rem;
 }
 
-.produto {
-  text-decoration: none;
-  color: #000;
+.titulo {
+  margin: .5rem 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }

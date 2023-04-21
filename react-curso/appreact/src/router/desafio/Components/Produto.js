@@ -42,12 +42,7 @@ const Produto = () => {
       </div>
       <div>
         <h2>{produto.nome}</h2>
-        <span className={styles.preco}>
-          {Number(produto.preco).toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          })}
-        </span>
+        <span className={styles.preco}>R$ {produto.preco}</span>
         <p className={styles.descricao}>{produto.descricao}</p>
       </div>
     </div>

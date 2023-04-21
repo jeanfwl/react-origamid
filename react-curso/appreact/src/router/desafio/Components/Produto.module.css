@@ -11,6 +11,7 @@
 .preco {
   padding: .5rem;
   border-radius: 4px;
+  font-size: 1.2rem;
   background-color: greenyellow;
   color: green;
 }
