@@ -1,19 +1,22 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import styles from './Header.module.css';
 
 const Header = () => {
   return (
-    <nav style={{ display: 'flex', gap: '1rem' }}>
-      <p>
-        <NavLink to="/" activeClassName={null}>
-          Produtos
-        </NavLink>
-      </p>
-      <p>
-        <NavLink to="contato" activeClassName={null}>
-          Contato
-        </NavLink>
-      </p>
+    <nav className={styles.header}>
+      <ul>
+        <li>
+          <NavLink to="/" className={styles.link} end>
+            Produtos
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="contato" className={styles.link}>
+            Contato
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 };

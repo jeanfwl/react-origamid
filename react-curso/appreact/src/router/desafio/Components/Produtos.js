@@ -1,39 +1,45 @@
 import React from 'react';
 import Head from './Head';
-import Produto from './Produto';
-import { Route, Routes } from 'react-router-dom';
-import ProdutoDetalhe from './ProdutoDetalhe';
+import { Link } from 'react-router-dom';
+import styles from './Produtos.module.css';
 
 const Produtos = () => {
   const [produtos, setProdutos] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
+  const [erro, setErro] = React.useState(null);
 
   React.useEffect(() => {
     async function fetchProdutos() {
-      setLoading(true);
-      const res = await fetch('https://ranekapi.origamid.dev/json/api/produto');
-      const json = await res.json();
-      setProdutos(json);
-      setLoading(false);
+      try {
+        setLoading(true);
+        setErro(null);
+        const res = await fetch(
+          'https://ranekapi.origamid.dev/json/api/produto',
+        );
+        const json = await res.json();
+        setProdutos(json);
+      } catch (error) {
+        setErro('Ocorreu um erro ao buscar os produtos.');
+      } finally {
+        setLoading(false);
+      }
     }
     fetchProdutos();
   }, []);
 
+  if (loading) return <div className="loading"></div>;
+  if (erro) return <p>{erro}</p>;
+  if (produtos === null) return null;
   return (
-    <>
+    <div className={`${styles.produtos} animeLeft`}>
       <Head title="Produtos" />
-      {loading && <p>Carregando...</p>}
-      {loading === false && produtos && (
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {produtos.map((produto) => (
-            <Produto key={produto.id} produto={produto} />
-          ))}
-        </div>
-      )}
-      {/* <Routes>
-        <Route path="produto/:id" element={<ProdutoDetalhe />} />
-      </Routes> */}
-    </>
+      {produtos.map(({ id, fotos, nome }) => (
+        <Link key={id} to={`produto/${id}`} className={styles.produto}>
+          <img src={fotos[0].src} alt={fotos[0].titulo} />
+          <h3>{nome}</h3>
+        </Link>
+      ))}
+    </div>
   );
 };
 

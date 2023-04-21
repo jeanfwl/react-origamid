@@ -1,0 +1,19 @@
+.header ul {
+  display: flex;
+  list-style: none;
+}
+
+.link {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2rem;
+  background-color: #ddd;
+  padding: .5rem 1rem;
+  border-radius: 4px;
+}
+
+.header :global(.active),
+.link:hover {
+  background: #ccc;
+}

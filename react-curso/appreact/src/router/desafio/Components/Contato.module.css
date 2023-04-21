@@ -1,0 +1,23 @@
+.contato {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.dados {
+  list-style: none;
+  padding: 0;
+}
+
+.dados li {
+  margin-bottom: .5rem;
+}
+
+.dados li::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 2px;
+  margin-right: 1rem;
+  background-color: #ccc;
+}

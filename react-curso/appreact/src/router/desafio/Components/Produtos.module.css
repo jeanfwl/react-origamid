@@ -1,0 +1,11 @@
+.produtos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.produto {
+  text-decoration: none;
+  color: #000;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
