@@ -9,6 +9,8 @@ body {
   --type-primary: Arial, Helvetica, sans-serif;
   --type-secondary: 'Spectral', Georgia, serif;
   font-family: var(--type-primary);
+
+  --color-primary: #fb1;
 }
 
 a {
