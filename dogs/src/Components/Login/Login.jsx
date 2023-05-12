@@ -1,11 +1,15 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import LoginCreate from './LoginCreate';
 import LoginPasswordLost from './LoginPasswordLost';
 import LoginPasswordReset from './LoginPasswordReset';
+import { UserContext } from '../../UserContext';
 
 const Login = () => {
+  const { loggedIn } = React.useContext(UserContext);
+
+  if (loggedIn) return <Navigate to="/conta" />;
   return (
     <div>
       <Routes>
@@ -14,7 +18,6 @@ const Login = () => {
         <Route path="/perdeu" element={<LoginPasswordLost />} />
         <Route path="/resetar" element={<LoginPasswordReset />} />
       </Routes>
-      <Link to="criar">Cadastrar</Link>
       <Link to="perdeu">Esqueci a senha carai kkk</Link>
     </div>
   );

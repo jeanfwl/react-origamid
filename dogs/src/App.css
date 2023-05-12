@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -44,4 +46,38 @@ h1, h2, h3, h4, h5, h6, p {
   max-width: 50rem;
   padding: 0 1rem;
   margin: 0 auto;
+}
+
+.animeLeft {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animeLeft .3s forwards;
+}
+
+@keyframes animeLeft {
+  to {
+    opacity: initial;
+    transform: initial;
+  }
+}
+
+.title {
+  position: relative;
+  line-height: 1;
+  font-family: var(--type-secondary);
+  font-size: 3rem;
+  z-index: 1;
+}
+
+.title::after {
+  content: '';
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  background-color: #fb1;
+  border-radius: .2rem;
+  position: absolute;
+  z-index: -1;
+  bottom: 5px;
+  left: -5px;
 }
