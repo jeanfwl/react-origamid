@@ -20,7 +20,6 @@ const Login = () => {
           <Route path="/perdeu" element={<LoginPasswordLost />} />
           <Route path="/resetar" element={<LoginPasswordReset />} />
         </Routes>
-        <Link to="perdeu">Esqueci a senha carai kkk</Link>
       </div>
     </section>
   );
