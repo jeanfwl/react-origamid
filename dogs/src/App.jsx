@@ -6,7 +6,7 @@ import Home from './Components/Home';
 import Login from './Components/Login/Login';
 import './App.css';
 import { UserStorage } from './UserContext';
-import Account from './Components/Account/Account';
+import UserAccount from './Components/Account/UserAccount';
 import ProtectedRoute from './Components/Helper/ProtectedRoute';
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
             path="conta/*"
             element={
               <ProtectedRoute>
-                <Account />
+                <UserAccount />
               </ProtectedRoute>
             }
           />
