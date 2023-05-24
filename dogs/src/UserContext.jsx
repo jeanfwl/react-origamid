@@ -39,14 +39,13 @@ export const UserStorage = ({ children }) => {
     }
   }
 
-  async function userLogout() {
+  const userLogout = React.useCallback(async function () {
     window.localStorage.removeItem('token');
     setData(null);
     setError(null);
     setLoggedIn(false);
     setLoading(false);
-    navigate('/login');
-  }
+  }, []);
 
   React.useEffect(() => {
     async function autoLogin() {
