@@ -26,13 +26,16 @@ const UserHeaderNav = () => {
 
   return (
     <>
-      <button
-        aria-label="Menu"
-        onClick={() => setMenuMobile(!menuMobile)}
-        className={`${styles.mobileButton} ${
-          menuMobile && styles.mobileButtonActive
-        }`}
-      ></button>
+      {mobile && (
+        <button
+          aria-label="Menu"
+          onClick={() => setMenuMobile(!menuMobile)}
+          className={`${styles.mobileButton} ${
+            menuMobile && styles.mobileButtonActive
+          }`}
+        ></button>
+      )}
+
       <nav
         className={`${mobile ? styles.navMobile : styles.nav} ${
           menuMobile && styles.navMobileActive
